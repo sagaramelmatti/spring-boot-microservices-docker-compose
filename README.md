@@ -26,6 +26,29 @@ docker images
 docker ps -a
 
 ==============================================================
+Run Bank Database with compose :
+
+spring-boot-microservices-docker-compose_bankdbimage_1
+mysql -uroot -root
+
+==============================================================
+Run Customer Database with compose :
+
+spring-boot-microservices-docker-compose_customerdbimage_1
+mysql -uroot -root
+
+==================================================
+
+Run Application :
+
+Run Bank Microservice :
+
+1)  http://localhost:9191/banks/
+
+
+Run Customer Microservice :
+
+1)  http://localhost:9191/customers/
 
 
 
