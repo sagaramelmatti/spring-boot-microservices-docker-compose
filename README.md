@@ -37,7 +37,7 @@ Run Customer Database with compose :
 spring-boot-microservices-docker-compose_customerdbimage_1
 mysql -uroot -root
 
-==================================================
+------------------------------------------------------------------------------------------------
 
 Run Application :
 
