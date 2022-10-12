@@ -1,0 +1,71 @@
+version: '3'
+services:
+
+  bankdbimage:
+    image: mysql:5.6
+    networks:
+      - test-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bank_db
+
+  customerdbimage:
+    image: mysql:5.6
+    networks:
+      - test-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=customer_db
+  
+  eureka-server:
+    build: ./eureka-server
+    image: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - test-network
+
+  bank-microservice:
+    build: ./bank-microservice
+    image: bank-microservice
+    networks:
+      - test-network
+    ports:
+      - "9001:9001"
+    depends_on:
+      - eureka-server
+      - bankdbimage
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+
+  customer-microservice:
+    build: ./customer-microservice
+    image: customer-microservice
+    networks:
+      - test-network
+    ports:
+      - "9002:9002"
+    depends_on:
+      - eureka-server
+      - customerdbimage
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+
+  api-cloud-gateway:
+    build: ./api-cloud-gateway
+    image: api-cloud-gateway
+    networks:
+      - test-network
+    ports:
+      - "9191:9191"
+    depends_on: 
+      - eureka-server
+      - bank-microservice
+      - customer-microservice
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+
+networks:
+  test-network:
+
+

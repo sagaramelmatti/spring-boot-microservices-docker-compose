@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: bank-microservice
+server:
+  port: ${port:9001}
+  servlet:
+    context-path: /banks
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka # value will get overriden if passed from external config
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
