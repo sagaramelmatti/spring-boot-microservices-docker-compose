@@ -19,19 +19,19 @@ mvn clean install
 **Run Docker Compose 
 docker-compose up
 
-====================================================================
+---------------------------------------------------------------------------------------------
 Check all images and containers:
 
 docker images
 docker ps -a
 
-==============================================================
+----------------------------------------------------------------------------------------------
 Run Bank Database with compose :
 
 spring-boot-microservices-docker-compose_bankdbimage_1
 mysql -uroot -root
 
-==============================================================
+-------------------------------------------------------------------------------------------------
 Run Customer Database with compose :
 
 spring-boot-microservices-docker-compose_customerdbimage_1
