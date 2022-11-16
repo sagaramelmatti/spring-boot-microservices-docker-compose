@@ -28,7 +28,13 @@ docker ps -a
 ----------------------------------------------------------------------------------------------
 Run Bank Database with compose :
 
-spring-boot-microservices-docker-compose_bankdbimage_1
+Check Running DB Images using below command 
+
+docker ps -a 
+
+Login to databases using below :
+
+docker exec -it spring-boot-microservices-docker-compose_bankdbimage_1mysql -p
 mysql -uroot -root
 
 -------------------------------------------------------------------------------------------------
