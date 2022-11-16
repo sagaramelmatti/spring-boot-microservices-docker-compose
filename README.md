@@ -34,8 +34,10 @@ docker ps -a
 
 Login to databases using below :
 
-docker exec -it spring-boot-microservices-docker-compose_bankdbimage_1mysql -p
-mysql -uroot -root
+docker exec -it spring-boot-microservices-docker-compose_bankdbimage_1 mysql -p
+
+
+
 
 -------------------------------------------------------------------------------------------------
 Run Customer Database with compose :
